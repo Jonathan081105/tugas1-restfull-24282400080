@@ -4,5 +4,9 @@
   "words": [
     "tugas",
     "restful"
+  ],
+  "ignorePaths": [
+    "app.js",
+    "*.md"
   ]
 }
