@@ -6,14 +6,112 @@ Proyek ini dibuat untuk memenuhi Tugas 1 Praktikum.
 
 ## 🚀 Fitur Endpoint
 
-API ini berjalan di resource `/loans` dan mendukung operasi CRUD penuh:
+API ini berjalan di resource `/loans` dan mendukung operasi CRUD penuh.
 
-- `GET /loans` - Menampilkan seluruh data pinjaman.
-- `GET /loans?status=aktif` - Menampilkan data pinjaman yang difilter berdasarkan status (aktif/lunas).
-- `GET /loans/:id` - Menampilkan data pinjaman tunggal berdasarkan ID.
-- `POST /loans` - Menambahkan data pinjaman baru (dengan validasi input wajib terisi).
-- `PUT /loans/:id` - Memperbarui data pinjaman berdasarkan ID (dengan validasi input wajib terisi).
-- `DELETE /loans/:id` - Menghapus data pinjaman berdasarkan ID.
+### 1. GET `/loans`
+Menampilkan seluruh data pinjaman.
+- **Query Params:** `?status=aktif` atau `?status=lunas` (Opsional, untuk melakukan filter).
+- **Response Success (200 OK):**
+```json
+[
+  {
+    "id": 1,
+    "namaAnggota": "Ibu Sari",
+    "jumlahPinjaman": 5000000,
+    "tenorBulan": 12,
+    "bungaPersen": 1.5,
+    "status": "aktif"
+  }
+]
+```
+
+### 2. GET `/loans/:id`
+Menampilkan data pinjaman tunggal berdasarkan ID.
+- **Response Success (200 OK):**
+```json
+{
+  "id": 1,
+  "namaAnggota": "Ibu Sari",
+  "jumlahPinjaman": 5000000,
+  "tenorBulan": 12,
+  "bungaPersen": 1.5,
+  "status": "aktif"
+}
+```
+- **Response Not Found (404 Not Found):**
+```json
+{
+  "status": "error",
+  "message": "Data tidak ditemukan",
+  "data": null
+}
+```
+
+### 3. POST `/loans`
+Menambahkan data pinjaman baru (dengan validasi input wajib terisi).
+- **Request Body:**
+```json
+{
+  "namaAnggota": "Pak Joko",
+  "jumlahPinjaman": 3000000,
+  "tenorBulan": 12,
+  "bungaPersen": 1.2,
+  "status": "aktif"
+}
+```
+- **Response Success (201 Created):**
+```json
+{
+  "status": "success",
+  "message": "Data berhasil ditambahkan",
+  "data": {
+    "id": 4,
+    "namaAnggota": "Pak Joko",
+    "jumlahPinjaman": 3000000,
+    "tenorBulan": 12,
+    "bungaPersen": 1.2,
+    "status": "aktif"
+  }
+}
+```
+
+### 4. PUT `/loans/:id`
+Memperbarui data pinjaman berdasarkan ID (dengan validasi input wajib terisi).
+- **Request Body:**
+```json
+{
+  "namaAnggota": "Ibu Sari Updated",
+  "jumlahPinjaman": 6000000,
+  "tenorBulan": 12,
+  "status": "lunas"
+}
+```
+- **Response Success (200 OK):**
+```json
+{
+  "status": "success",
+  "message": "Data berhasil diperbarui",
+  "data": {
+    "id": 1,
+    "namaAnggota": "Ibu Sari Updated",
+    "jumlahPinjaman": 6000000,
+    "tenorBulan": 12,
+    "bungaPersen": 1.5,
+    "status": "lunas"
+  }
+}
+```
+
+### 5. DELETE `/loans/:id`
+Menghapus data pinjaman berdasarkan ID.
+- **Response Success (200 OK):**
+```json
+{
+  "status": "success",
+  "message": "Data pinjaman dengan id 1 berhasil dihapus",
+  "data": null
+}
+```
 
 ## 🛠️ Teknologi yang Digunakan
 
