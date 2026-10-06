@@ -11,6 +11,12 @@ let loans = [
 let nextId = 4;
 
 // Method: GET
+// URL: /
+app.get('/', (req, res) => {
+  res.send('<h1>Selamat datang di API Koperasi</h1><p>Silakan akses <a href="/loans">/loans</a> untuk melihat data pinjaman.</p>');
+});
+
+// Method: GET
 // URL: /loans (or /loans?status=aktif)
 app.get('/loans', (req, res) => {
   const { status } = req.query;

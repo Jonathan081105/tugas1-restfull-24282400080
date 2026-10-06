@@ -142,7 +142,10 @@ Menghapus data pinjaman berdasarkan ID.
    ```
 
 4. **Uji Endpoint**
-   Buka Postman atau browser dan akses `http://localhost:3000/loans`.
+   Buka Postman atau browser dan akses alamat berikut:
+   👉 `http://localhost:3000/loans`
+
+   > **Catatan Penting:** Pastikan Anda menambahkan `/loans` di akhir URL (bukan hanya `http://localhost:3000/`). Jika Anda hanya mengakses alamat utama (`/`), Anda akan diarahkan ke halaman selamat datang atau mendapat pesan *endpoint tidak ditemukan*. Endpoint yang mengembalikan data JSON Koperasi berada di jalur `/loans`.
 
 ## 🌐 Deployment (Vercel)
 Aplikasi ini sudah mendukung *serverless deployment* di platform Vercel karena telah dilengkapi konfigurasi `vercel.json` dan ekspor modul di file `app.js`.
