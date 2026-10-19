@@ -150,5 +150,17 @@ Menghapus data pinjaman berdasarkan ID.
 ## 🌐 Deployment (Vercel)
 Aplikasi ini sudah mendukung *serverless deployment* di platform Vercel karena telah dilengkapi konfigurasi `vercel.json` dan ekspor modul di file `app.js`.
 
+## 🧪 Pengujian Otomatis (Postman & Newman Automation)
+
+Proyek ini telah dilengkapi dengan berkas Postman Collection dan Environment untuk pengujian otomatis (Tugas 2):
+- **Collection**: `postman/PAW2_Tugas2_Koperasi_Pinjaman.postman_collection.json`
+- **Environment**: `postman/PAW2_Tugas2_Environment.postman_environment.json`
+
+### Menjalankan Pengujian dengan Newman CLI:
+```bash
+npx newman run postman/PAW2_Tugas2_Koperasi_Pinjaman.postman_collection.json -e postman/PAW2_Tugas2_Environment.postman_environment.json
+```
+Seluruh 10 skenario pengujian (6 skenario berhasil dan 4 skenario gagal) beserta 21 assertion tervalidasi 100% Passed (0 Failed).
+
 ---
 *Dibuat oleh: Jonathan Immanuel A. (NIM: 2428240080) - Kelas SI5B*
