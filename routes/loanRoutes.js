@@ -8,5 +8,6 @@ router.get('/:id', loanController.getLoanById);
 router.post('/', cekApiKey, loanController.createLoan);
 router.put('/:id', cekApiKey, loanController.updateLoan);
 router.delete('/:id', cekApiKey, loanController.deleteLoan);
+router.post('/:id/pembayaran', cekApiKey, loanController.addPayment);
 
 module.exports = router;
